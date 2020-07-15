@@ -1,0 +1,38 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+    <img width="40" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+    />
+    <span>Datos del Clima</span>
+    <div class="spacer"></div>
+</div>
+<br><br>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <form (submit)="submitLocation(cityName, countryCode)">
+                    <div class="form-group">
+                        <label>Nombre de la ciudad</label>
+                        <input type="text" class="form-control" #cityName placeholder="Ej: bogota">
+                    </div>
+                    <div class="form-group">
+                        <label>Código de País</label>
+                        <input type="text" class="form-control" #countryCode placeholder="Ej: co">
+                    </div>
+                    <button class="btn btn-primary btn-block btn-md mt-4">Obtener datos del clima</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div *ngIf="weather" class="card card-body">
+                <h4 class="text-center">Clima de {{weather.name}}</h4>
+                <p>Ciudad: {{weather.name}}</p>
+                <p>Latitud: {{weather.coord.lat}}</p>
+                <p>Longitud: {{weather.coord.lon}}</p>
+                <p>Humedad: {{weather.main.humidity}}</p>
+                <p>Presión: {{weather.main.pressure}}</p>
+                <p>Temperatura: {{weather.main.temp}} °C</p>
+            </div>
+        </div>
+    </div>
+</div>
